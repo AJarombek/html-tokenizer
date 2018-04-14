@@ -1,0 +1,11 @@
+{
+  "name": "html-tokenizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AJarombek/html-tokenizer.git",
+  "author": "Andrew Jarombek <ajarombek95@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "tokenize": "./index.js"
+  }
+}
