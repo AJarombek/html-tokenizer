@@ -8,3 +8,6 @@ npm install -g
 
 # Now you can call the script directly!
 tokenize
+
+# Commander simplifies building complex command line interfaces
+yarn add commander
