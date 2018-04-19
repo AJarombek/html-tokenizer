@@ -11,3 +11,5 @@ tokenize
 
 # Commander simplifies building complex command line interfaces
 yarn add commander
+
+yarn add parse5

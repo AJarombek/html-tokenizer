@@ -9,6 +9,7 @@
     "tokenize": "./index.js"
   },
   "dependencies": {
-    "commander": "^2.15.1"
+    "commander": "^2.15.1",
+    "parse5": "^4.0.0"
   }
 }

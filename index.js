@@ -10,6 +10,8 @@ const program = require('commander');
 const fs = require('fs');
 const path = require('path');
 
+const tokenize = require('./tokenize');
+
 program
     .version('0.1.0')
     .arguments('<filename>')
@@ -20,16 +22,19 @@ program
 
         // Get the data from the input file
         const data = fs.readFileSync(path.join(__dirname, filename));
+        console.info(data.toString());
+
+        const jsonTokens = tokenize(data.toString());
 
         // If we specify an output, write to that file.  Otherwise, print the contents to the console
         if (program.output) {
-            fs.writeFile(path.join(__dirname, program.output), data, 'utf-8', (err) => {
+            fs.writeFile(path.join(__dirname, program.output), jsonTokens, 'utf-8', (err) => {
                 if (err){
                     console.error(err);
                 }
             });
         } else {
-            console.info(data.toString());
+            console.info(JSON.stringify(jsonTokens));
         }
     })
     .parse(process.argv);
