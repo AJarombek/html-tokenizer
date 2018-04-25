@@ -66,12 +66,14 @@ function tokenizeChild(child, tokens) {
         ]
     } else {
 
+        const value = child.value;
+
         return [
             ...tokens,
             {
                 el: child.nodeName,
                 attributes: tokenizeAttrs(child.attrs),
-                value: child.value,
+                value: value ? value.replace(/\n/g, ' ') : null, // Remove the newline character
                 children: child.childNodes ? tokenizeElement(child.childNodes) : null
             }
         ]
