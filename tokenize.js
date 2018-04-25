@@ -53,12 +53,14 @@ function tokenizeChild(child, tokens) {
 
     if (child.nodeName === 'sup' || child.nodeName === 'code' || child.nodeName === 'codesnippet') {
 
+        const value = child.childNodes[0].value;
+
         return [
             ...tokens,
             {
                 el: child.nodeName,
                 attributes: tokenizeAttrs(child.attrs),
-                value: child.childNodes[0].value,
+                value: value.replace('\n', ''), // Remove the first occurrence of a newline character
                 children: null
             }
         ]
@@ -82,15 +84,15 @@ function tokenizeChild(child, tokens) {
  * @returns {*} - an array of object representations of attributes
  */
 function tokenizeAttrs(attributes) {
-    let attrs = [];
+    let attrs = {};
 
     if (!attributes || attributes.length === 0) {
         return null;
     } else {
-        attributes.forEach(attribute => {
+        attributes.map(attribute => {
             attrs = pushAttribute(attribute, attrs)
         });
-        return attributes;
+        return attrs;
     }
 }
 
@@ -98,16 +100,13 @@ function tokenizeAttrs(attributes) {
  * Create a token for an HTML elements attribute
  * @param attribute - an attribute to tokenize
  * @param attrs - the currently existing list of attributes for this HTML element
- * @returns {*[]} - a new list of attributes
+ * @returns {{}} - a new object of attributes
  */
 function pushAttribute(attribute, attrs) {
-    return [
+    return {
         ...attrs,
-        {
-            key: attribute.name,
-            value: attribute.value
-        }
-    ]
+        [`${attribute.name}`]: attribute.value
+    }
 }
 
 // Export just the tokenize() function.  The rest are private to the module
