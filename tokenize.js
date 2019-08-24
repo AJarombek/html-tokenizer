@@ -51,7 +51,8 @@ function tokenizeChild(child, tokens) {
         return tokens;
     }
 
-    if (child.nodeName === 'sup' || child.nodeName === 'code' || child.nodeName === 'codesnippet') {
+    if (child.nodeName === 'sup' || child.nodeName === 'code' ||
+        child.nodeName === 'codesnippet' || child.nodeName === 'span') {
 
         const value = child.childNodes[0].value;
 
@@ -105,9 +106,17 @@ function tokenizeAttrs(attributes) {
  * @returns {{}} - a new object of attributes
  */
 function pushAttribute(attribute, attrs) {
+    let attributeName = attribute.name;
+
+    // By default, browsers parse attribute names as lowercase characters.  Override this behavior
+    // for className, which is used by React.js.
+    if (attributeName === 'classname') {
+        attributeName = 'className';
+    }
+
     return {
         ...attrs,
-        [`${attribute.name}`]: attribute.value
+        [`${attributeName}`]: attribute.value
     }
 }
 
