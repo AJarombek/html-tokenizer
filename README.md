@@ -4,6 +4,21 @@
 
 Node.js module that converts HTML to a tokenized JSON representation.  Utilized by blog posts on `jarombek.com`.
 
+### Commands
+
+**Initial Setup**
+
+```bash
+nvm use 12.18.4
+npm install -g
+```
+
+**Tokenizing Example**
+
+```bash
+tokenize ../jarombek-com-posts/2020/09-27-jenkins-ec2.html -o parsed.json
+```
+
 ### Files
 
 | Filename                 | Description                                                                |
