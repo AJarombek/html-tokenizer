@@ -26,6 +26,7 @@ tokenize ../jarombek-com-posts/2020/09-27-jenkins-ec2.html -o parsed.json
 | Filename                | Description                                                       |
 |-------------------------|-------------------------------------------------------------------|
 | `.eslintrc.js`          | Configuration for ESLint.                                         |
+| `.prettierignore`       | File patterns for the Prettier code formatter to ignore.          |
 | `.prettierrc`           | Configuration for Prettier.                                       |
 | `package.json`          | Entry point for the npm module.  Contains dependency definitions. |
 | `yarn.lock`             | Where Yarn stores the versions of each dependency.                |
