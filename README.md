@@ -28,3 +28,15 @@ tokenize ../jarombek-com-posts/2020/09-27-jenkins-ec2.html -o parsed.json
 | `setup.sh`               | Bash commands to set up the npm module.                                    |
 | `tokenize.js`            | Functions which parse the HTML and convert it to JSON.                     |
 | `.yarn.lock`             | Where Yarn stores the versions of each dependency.                         |
+
+### Version History
+
+**[V.1.0.1](https://github.com/AJarombek/html-tokenizer/tree/v1.0.1) - GitHub Actions**
+
+> Release Date: October 7th, 2023
+
+* Add GitHub Actions for Linting and Formatting
+
+**[V.1.0.0](https://github.com/AJarombek/html-tokenizer/tree/v1.0.0) - Initial Release**
+
+> Release Date: August 24th, 2019
